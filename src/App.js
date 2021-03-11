@@ -1,24 +1,34 @@
 import React from 'react';
 import './App.css';
-import { Header } from "./components/Header";
-import { Balance } from "./components/Balance";
-import { IncomeExpenses } from "./components/IncomeExpenses";
-import { TransactionList } from "./components/TransactionList";
-import { AddTransaction } from "./components/AddTransaction";
-import { Globalprovider } from "./context/GlobalState";
+import Header  from "./components/Header";
+import Home  from "./components/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 
 
 function App() {
+
   return (
-    <Globalprovider>
-    <Header/>
-    <div className='container'>
-    <Balance/>
-    <IncomeExpenses/>
-    <TransactionList/>
-    <AddTransaction/>
-   </div>
-   </Globalprovider>  );
+  <Router>
+      <div className="app">
+       <Switch>         
+         <Route path="/checkout">
+         <Header />
+         {/* <Checkout /> */}
+         </Route>
+         
+         <Route path='/login'>
+          {/* <Login /> */}
+         </Route>
+
+         <Route path='/'>
+          <Header/>
+            <Home /> 
+         </Route>
+       </Switch>
+    </div>
+     </Router>
+  )   
 }
 
 export default App;
