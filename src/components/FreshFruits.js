@@ -1,17 +1,17 @@
 import "../styles/Home.css";
 import React, { useContext } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 import Product from "./Product";
 import { MyContextData } from "../context/context";
 import { Link } from "react-router-dom";
 import HeaderBar from "./HeaderBar";
 
-
-function  DriedFruits() {
+function  FreshFruits() {
 
     const { context } = useContext(MyContextData); 
 
-    let filteredData = context.map(i => { return  i.filter(el => { return el.category_url === "/shop/categories/Dried"  })})
+    // filter out category type
+    let filteredData = context.map(i => { return  i.filter(el => { return el.category_url === "/shop/categories/Fresh"  })})
         
     let pageOnLoadResults =                 
        filteredData.map((el)=> (
@@ -24,27 +24,25 @@ function  DriedFruits() {
         ))
     ))                  
        
-    // console.log(filteredData);
-
     return (
         <div className='home'>
             <img className='home__image'
             src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIqMMKKfUUSELxynoF6VLQwkR9W7GpTXyOOw&usqp=CAU'
             alt='' 
             />
-            <HeaderBar />
-            <div style={{ display:'flex', justifyContent: 'space-between', padding: '50px' }}>
+        <HeaderBar />
+        <div style={{ display:'flex', justifyContent: 'space-between', padding: '50px' }}>
             <Link to= "/"> Back to Home Page</Link>
             <Link to= "/product-details"> Fruit Basket</Link>
-            </div>   
+        </div>       
 
         <Container>
             <Row>
-             {pageOnLoadResults}
+            { pageOnLoadResults }
             </Row> 
         </Container>  
-        </div>
+       </div>
     )
 }
 
-export default DriedFruits
+export default FreshFruits
