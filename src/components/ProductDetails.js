@@ -4,6 +4,7 @@ import { MyContextData } from "../context/context";
 import { Container, Row, Col } from 'reactstrap';
 import { Card, CardText, CardBody, CardTitle,  CardGroup, CardImg, Button } from 'reactstrap';
 import { Link } from "react-router-dom";
+import HeaderBar from './HeaderBar';
 
 
 function ProductDetails({ item }) {
@@ -24,6 +25,7 @@ function ProductDetails({ item }) {
             alt='' 
             />
             <div>
+            <HeaderBar />
             <Link to= '/'> Back to Home Page</Link>
             </div>              
           
